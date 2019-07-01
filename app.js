@@ -63,6 +63,6 @@ mongoose.set("useFindAndModify", false);
 
 seedDB();
 
-app.listen("3001", function() {
+app.listen("3000", function() {
   console.log("YelpCamp server has started.");
 });
