@@ -48,21 +48,28 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 // Database
-mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true }, function(
-  err
-) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Successfully connected to mongodb.");
+mongoose.connect(
+  process.env.DATABASEURL || "mongodb://localhost/yelp_camp",
+  { useNewUrlParser: true },
+  function(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Successfully connected to mongodb.");
+    }
   }
-});
+);
 mongoose.set("useFindAndModify", false);
 
 //seedDB();
 
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(process.env.PORT || 3000, process.env.IP || "127.0.0.1", function() {
   console.log(
-    "YelpCamp server listening on " + process.env.IP + ":" + process.env.PORT
+    "YelpCamp server listening on " +
+      (process.env.IP || "127.0.0.1") +
+      ":" +
+      (process.env.PORT || 3000)
   );
 });
+
+console.log(process.env.PORdT || 8000);
