@@ -61,7 +61,8 @@ mongoose.set("useFindAndModify", false);
 
 //seedDB();
 
-app.listen("80", function() {
-  console.log(process.env.DATABASEURL);
-  console.log("YelpCamp server has started.");
+app.listen(process.env.PORT, process.env.IP, function() {
+  console.log(
+    "YelpCamp server listening on " + process.env.IP + ":" + process.env.PORT
+  );
 });
